@@ -19,18 +19,39 @@
 
 
 ## Running the project
+###Need to have Mysql database installed first along with PHP 7.4 or higher
 
-> 1. composer install
-### Installs the project dependencies
+### 1. Installs the project dependencies using
+>  composer install
 
-> 2. php artisan migrate
-### Will create the needed tables in database
+### 2. Copy .env.example to .env
+On Windows
+> copy .env.example .env
 
-> 3. php artisan db:seed --class=DatabaseSeeder
-### Will populate the tables with the sample data given
+On Linux/*NIX
+> cp .env.example .env
 
-> 4. php artisan serve
-### Starts php's inbuilt server for testing
 
-> 5. .\vendor\bin\phpunit
-### Test cases can be evaluated
+### 3. Edit the .env file and add the DATABASE configurations 
+| Syntax | Description |
+| ----------- | ----------- |
+| DB_DATABASE | test |
+| DB_USERNAME | root |
+| DB_PASSWORD | root |
+
+### 4. Run migration command, 
+> php artisan migrate
+#### this will create the required tables in the database
+
+### 5. Run database seeding command,
+> php artisan db:seed --class=DatabaseSeeder
+#### this will insert some sample data into the tables created above
+
+### 6. Start php's inbuilt server for testing
+> php artisan serve
+
+---
+
+## [TESTING]
+> .\vendor\bin\phpunit
+
